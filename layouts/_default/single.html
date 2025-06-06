@@ -74,14 +74,6 @@
       {{ .Content }}
     </div>
   </article>
-  
-  {{- /* Comments */}}
-
-  {{- if and .Site.Params.giscus.enable (not .Params.disableComment) }}
-    <div class="single-comments">
-      {{ partial "comments.html" . }}
-    </div>
-  {{- end }}
 
   {{ if .Store.Get "hasMermaid" }}
   {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}
@@ -94,23 +86,6 @@
     src='{{ "js/mermaid.js" | relURL }}'>
   </script>
   {{ end }}
-
-  {{/* Next prev controls */}}
-
-  {{ if not (.Param "hidePagination") }}
-  {{ partial "pagination-single.html" . }}
-  {{ end }}
-
-  {{/* Back to top */}}
-
-  {{ if not (.Param "hideBackToTop") }}
-  <div class="back-to-top">
-    <a href="#top">
-      back to top
-    </a>
-  </div>
-  {{ end }}
-
 </div>
 
 {{ end }}
