@@ -4,10 +4,9 @@
 
     {{ partial "breadcrumbs.html" . }}
 
-    <h1>{{ .Title }}</h1>
     {{ .Content }}
 
-    {{ $tagsPage := eq .Title "Tags"}}
+    {{ $tagsPage := eq .Title "tags"}}
 
     {{ $paginationSize := 1}}
     {{ if (gt .Site.Params.paginationSize 0) }}
@@ -25,8 +24,5 @@
     {{ end }}
 
     {{ end }}
-
-    {{ partial "pagination-controls.html" $paginator}}
-
 </div>
 {{ end }}
