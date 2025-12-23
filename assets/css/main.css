@@ -100,12 +100,15 @@ input {
   border: 1px solid var(--code-border);
 }
 
-pre:hover .copy-code-button {
+div.code-block {
+  position: relative;
+}
+
+div.code-block:hover .copy-code-button {
   display: block;
 }
 
 pre {
-  position: relative;
   padding: var(--code-padding);
   border: 1px solid var(--code-border);
   overflow: scroll;
