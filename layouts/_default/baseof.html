@@ -20,6 +20,12 @@
     </header>
 
     <main class="main">
+      {{ if .IsHome }}
+        <h1>{{ .Site.Params.title }}</h1>
+      {{ else }}
+        {{ site.Params.title }}
+      {{ end }}
+
       {{ block "main" . }}{{ end }}
     </main>
   </div>

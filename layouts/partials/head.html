@@ -27,11 +27,7 @@
 {{ end }}
 
 <title>
-    {{ if .IsHome }}
-    {{ site.Title }}
-    {{ else }}
-    {{ printf "%s | %s" .Title site.Title }}
-    {{ end }}
+    {{ .Site.Params.title  }}
 </title>
 
 <link rel="canonical" href="{{ .Permalink }}"/>

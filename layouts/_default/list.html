@@ -1,28 +1,10 @@
 {{ define "main" }}
 
 <div class="list-container">
-
-    {{ partial "breadcrumbs.html" . }}
-
-    {{ .Content }}
-
-    {{ $tagsPage := eq .Title "tags"}}
-
-    {{ $paginationSize := 1}}
-    {{ if (gt .Site.Params.paginationSize 0) }}
-    {{ $paginationSize = .Site.Params.paginationSize }}
-    {{ end }}
-
-    {{ $paginator := .Paginate (.Pages) $paginationSize }}
-
-    {{ range $index, $page := $paginator.Pages }}
-
-    {{ if $tagsPage }}
-    {{ partial "tag-entry.html" $page}}
-    {{ else }}
-    {{ partial "post-entry.html" $page}}
-    {{ end }}
-
-    {{ end }}
+  {{ partial "breadcrumbs.html" . }} {{ .Content }} {{ $tagsPage := eq .Title
+  "tags"}} {{ $paginationSize := 1}} {{ if (gt .Site.Params.paginationSize 0) }}
+  {{ $paginationSize = .Site.Params.paginationSize }} {{ end }} {{ $paginator :=
+  .Paginate (.Pages) $paginationSize }} {{ range $index, $page :=
+  $paginator.Pages }} {{ end }}
 </div>
 {{ end }}
