@@ -28,7 +28,12 @@ h2 {
   font-size: var(--h2-font-size);
 }
 
-h3,
+h3 {
+  font-size: var(--h3-font-size);
+  margin-top: var(--hx-margin-top);
+  margin-bottom: var(--hx-margin-bottom);
+}
+
 h4,
 h5,
 h6 {
