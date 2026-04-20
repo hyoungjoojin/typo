@@ -74,18 +74,6 @@
       {{ .Content }}
     </div>
   </article>
-
-  {{ if .Store.Get "hasMermaid" }}
-  {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}
-  {{ $mermaidTheme := default "default" (or .Params.mermaidTheme .Site.Params.mermaidTheme) }}
-  <script defer
-    type="module"
-    id="mermaid_script"
-    data-light-theme="{{ $mermaidTheme }}"
-    data-dark-theme="{{ $mermaidDarkTheme }}"
-    src='{{ "js/mermaid.js" | relURL }}'>
-  </script>
-  {{ end }}
 </div>
 
 {{ end }}
