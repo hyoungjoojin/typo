@@ -5,6 +5,10 @@
   <aside class="toc">{{ .TableOfContents }}</aside>
   {{- end }}
 
+  {{ with .Params.heading }}
+  <h1 class="heading">{{ . }}</h1>
+  {{ end }}
+
   <div class="single-content">{{ .Content }}</div>
   {{ $tagsPage := eq .Title "tags"}} {{ $paginationSize := 1}} {{ if (gt
   .Site.Params.paginationSize 0) }} {{ $paginationSize =
