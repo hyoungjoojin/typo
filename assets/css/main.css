@@ -57,6 +57,68 @@ h6 {
   }
 }
 
+.fold-heading {
+  margin-bottom: var(--hx-margin-bottom);
+}
+
+.fold-heading.fold-h1 {
+  margin-top: var(--h1-margin-top);
+  margin-bottom: var(--h1-margin-bottom);
+}
+
+.fold-heading.fold-h2 {
+  margin-top: var(--h2-margin-top);
+  margin-bottom: var(--h2-margin-bottom);
+}
+
+.fold-heading.fold-h3,
+.fold-heading.fold-h4,
+.fold-heading.fold-h5,
+.fold-heading.fold-h6 {
+  margin-top: var(--hx-margin-top);
+}
+
+.fold-heading > summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+.fold-heading > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold-heading > summary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 2px solid var(--content-secondary);
+  border-bottom: 2px solid var(--content-secondary);
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  opacity: 0;
+}
+
+.fold-heading[open] > summary::before {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.fold-heading > summary:hover::before {
+  opacity: 1;
+}
+
+.fold-heading > summary > h1,
+.fold-heading > summary > h2,
+.fold-heading > summary > h3,
+.fold-heading > summary > h4,
+.fold-heading > summary > h5,
+.fold-heading > summary > h6 {
+  margin: 0;
+}
+
 p {
   margin-top: var(--p-margin-top);
   margin-bottom: var(--p-margin-bottom);
@@ -440,11 +502,63 @@ footer a {
 .toc ul {
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
+  list-style: none;
+  padding-left: 1em;
+}
+
+.toc nav > ul {
+  padding-left: 0;
 }
 
 .toc li {
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
+  margin-left: 0;
+}
+
+.toc a {
+  color: var(--content-secondary);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 1300px) {
+  .toc {
+    position: fixed;
+    top: 6rem;
+    left: calc(50% + (var(--main-width) / 2) + 20px);
+    width: 360px;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    margin: 0;
+    outline: none;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .toc:hover {
+    scrollbar-color: var(--content-secondary) transparent;
+  }
+
+  .toc::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+  }
+
+  .toc:hover::-webkit-scrollbar-thumb {
+    background-color: var(--content-secondary);
+  }
 }
 
 /* Autonumbering */

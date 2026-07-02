@@ -44,6 +44,7 @@
 
 <script src="{{ "js/theme-switch.js" | relURL }}"></script>
 <script defer src="{{ "js/copy-code.js" | relURL }}"></script>
+<script defer src="{{ "js/fold-headings.js" | relURL }}"></script>
 
 {{ if .Store.Get "hasMermaid" }}
 {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}

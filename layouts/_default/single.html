@@ -61,7 +61,7 @@
     
     {{- /* Table of Contents */}}
     
-    {{- if .Param "toc" }}
+    {{- if ne (.Params.toc) false }}
       <aside class="toc">
         <p><strong>Table of contents</strong></p>
         {{ .TableOfContents }}
