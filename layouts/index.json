@@ -1,0 +1,14 @@
+{{- $pages := where site.Pages "Kind" "in" (slice "page" "section") -}}
+[
+{{- range $index, $page := $pages -}}
+  {{- $title := (or ($page.Params.heading) ($page.Title)) -}}
+  {{- if $index }},{{ end -}}
+  {
+    "title": {{ $title | jsonify }},
+    "section": {{ $title | jsonify }},
+    "permalink": {{ $page.RelPermalink | jsonify }},
+    "content": {{ $page.Plain | truncate 400 | jsonify }}
+  }
+  {{- partial "functions/search-headings.html" (dict "headings" $page.Fragments.Headings "permalink" $page.RelPermalink "section" $title) -}}
+{{- end -}}
+]

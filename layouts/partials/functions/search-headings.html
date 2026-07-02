@@ -1,0 +1,12 @@
+{{- $permalink := .permalink -}}
+{{- $section := .section -}}
+{{- range .headings -}}
+{{- if .ID -}}
+,{
+  "title": {{ .Title | jsonify }},
+  "section": {{ $section | jsonify }},
+  "permalink": {{ (printf "%s#%s" $permalink .ID) | jsonify }}
+}
+{{- end -}}
+{{- partial "functions/search-headings.html" (dict "headings" .Headings "permalink" $permalink "section" $section) -}}
+{{- end -}}

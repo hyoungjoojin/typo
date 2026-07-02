@@ -19,6 +19,8 @@
       {{ partial "header.html" . }}
     </header>
 
+    {{ partial "search.html" . }}
+
     <main class="main">
       {{ if .IsHome }}
         <h1>{{ .Site.Params.title }}</h1>
@@ -45,6 +47,7 @@
 <script src="{{ "js/theme-switch.js" | relURL }}"></script>
 <script defer src="{{ "js/copy-code.js" | relURL }}"></script>
 <script defer src="{{ "js/fold-headings.js" | relURL }}"></script>
+<script defer src="{{ "js/search.js" | relURL }}"></script>
 
 {{ if .Store.Get "hasMermaid" }}
 {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}
